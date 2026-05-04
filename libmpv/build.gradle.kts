@@ -19,7 +19,7 @@ android {
         externalNativeBuild {
             cmake {
                 arguments += listOf(
-                    "-DANDROID_STL=c++_shared",
+                    "-DANDROID_STL=c++_static",
                 )
                 cFlags += "-Werror"
                 cppFlags += "-std=c++11"
