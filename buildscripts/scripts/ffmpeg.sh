@@ -11,21 +11,7 @@ elif [ "$1" == "clean" ]; then
 else
         exit 255
 fi
-# Apply HLS PNG disguise fix patch if not already applied
-PATCH_DIR="$(dirname "$0")/../"
-PATCH_FILE="${PATCH_DIR}ffmpeg-hls-png-fix.patch"
-if [ -f "$PATCH_FILE" ]; then
-        if ! grep -q "HLS_PNG_FIX" libavformat/hls.c 2>/dev/null; then
-                echo "Applying HLS PNG disguise fix patch..."
-                patch -p1 --no-backup-if-mismatch -i "$PATCH_FILE" || {
-                        echo "Warning: HLS PNG fix patch failed to apply, continuing without it"
-                }
-        else
-                echo "HLS PNG disguise fix patch already applied, skipping"
-        fi
-else
-        echo "Warning: HLS PNG fix patch not found at $PATCH_FILE"
-fi
+
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
