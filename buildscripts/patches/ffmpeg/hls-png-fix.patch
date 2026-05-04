@@ -1,0 +1,21 @@
+diff --git a/libavformat/hls.c b/libavformat/hls.c
+index 22ee1c6..c4c2874 100644
+--- a/libavformat/hls.c
++++ b/libavformat/hls.c
+@@ -2314,6 +2314,16 @@ static int hls_read_header(AVFormatContext *s)
+             url = av_strdup(pls->segments[0]->url);
+             ret = av_probe_input_buffer(&pls->pb.pub, &in_fmt, url, NULL, 0, 0);
+ 
++            /* HLS_PNG_FIX: force mpegts demuxer for TS disguised as PNG */
++            if (ret < 0)
++                ret = 0;
++            void *iter = NULL;
++            while ((in_fmt = av_demuxer_iterate(&iter)))
++                if (strstr(in_fmt->name, "mpegts"))
++                    break;
++            if (!in_fmt)
++                in_fmt = av_find_input_format("mpegts");
++
+             for (int n = 0; n < pls->n_segments; n++)
+                 if (ret >= 0)
+                     ret = test_segment(s, in_fmt, pls, pls->segments[n]);
