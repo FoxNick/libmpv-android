@@ -34,20 +34,19 @@ cpuflags=
         --disable-{muxers,encoders,devices,filters,bsfs} \
         --disable-v4l2-m2m \
         --disable-decoders \
-        --enable-decoder=h264,hevc,vp8,vp9,av1,vvc,mpeg4,mpeg2video,mpeg1video,msmpeg4v3 \
-        --enable-decoder=rv10,rv20,rv30,rv40,prores,bink \
-        --enable-decoder=cook,sipr,wmapro,wmav1,wmav2,rawvideo \
+        --enable-decoder=h264,hevc,vp8,vp9,av1,vvc,mpeg4,mpeg2video,prores \
+        --enable-decoder=wmapro,wmav1,wmav2 \
         --enable-decoder=aac,aac_latm,ac3,eac3,dca,flac,mp3,opus,vorbis \
         --enable-decoder=pcm_s16le,pcm_s24le,pcm_s32le,pcm_f32le,pcm_dvd \
-        --enable-decoder=ape,alac,amrnb,amrwb,qdm2 \
-        --enable-decoder=ass,subrip,hdr,text,subtext,srt \
+        --enable-decoder=ape,alac,amrnb,amrwb \
+        --enable-decoder=ass,hdr \
         --enable-decoder=h264_mediacodec,hevc_mediacodec,vp9_mediacodec,av1_mediacodec,mpeg4_mediacodec,vvc_mediacodec,mpeg2video_mediacodec \
         --enable-muxer=mov,matroska,mpegts,image2,mp4,null \
         --enable-encoder=mjpeg,png \
         --disable-demuxers \
-        --enable-demuxer=mov,matroska,mpegts,mpegps,flv,avi,ogg,wav,rawvideo,hls,dash,ape,ac3,eac3,mp3,flac,rm,aac \
+        --enable-demuxer=mov,matroska,mpegts,mpegps,flv,avi,ogg,wav,hls,dash,ape,ac3,eac3,mp3,flac,aac,mpegvideo \
         --disable-parsers \
-        --enable-parser=h264,hevc,vp9,av1,vvc,aac,aac_latm,ac3,eac3,dca,flac,mpeg4video,opus,vorbis,mpegaudio,mjpeg,png,hdr \
+        --enable-parser=h264,hevc,vp9,av1,vvc,mpeg2video,mpeg4video,mpegvideo,aac,aac_latm,ac3,eac3,dca,flac,opus,vorbis,mpegaudio,mjpeg,png,hdr \
         --disable-protocols \
         --enable-protocol=file,http,https,crypto,hls,rtmp,rtmps,rtsp,concat,pipe,udp,rtp
 
