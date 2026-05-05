@@ -34,12 +34,13 @@ cpuflags=
         --disable-{muxers,encoders,devices,filters,bsfs} \
         --disable-v4l2-m2m \
         --disable-decoders \
-        --enable-decoder=h264,hevc,vp8,vp9,av1,mpeg4,mpeg2video,mpeg1video,msmpeg4v3 \
-        --enable-decoder=rv10,rv20,rv30,rv40 \
-        --enable-decoder=aac,aac_latm,ac3,eac3,dca,flac,mp3,opus,vorbis,pcm_s16le,pcm_s24le \
-        --enable-decoder=ape,alac,amrnb,amrwb \
-        --enable-decoder=ass,subrip \
-        --enable-decoder=h264_mediacodec,hevc_mediacodec,vp9_mediacodec,av1_mediacodec,mpeg4_mediacodec \
+        --enable-decoder=h264,hevc,vp8,vp9,av1,vvc,mpeg4,mpeg2video,mpeg1video,msmpeg4v3 \
+        --enable-decoder=rv10,rv20,rv30,rv40,prores,bink \
+        --enable-decoder=aac,aac_latm,ac3,eac3,dca,flac,mp3,opus,vorbis \
+        --enable-decoder=pcm_s16le,pcm_s24le,pcm_s32le,pcm_f32le,pcm_dvd \
+        --enable-decoder=ape,alac,amrnb,amrwb,qdm2 \
+        --enable-decoder=ass,subrip,hdr \
+        --enable-decoder=h264_mediacodec,hevc_mediacodec,vp9_mediacodec,av1_mediacodec,mpeg4_mediacodec,vvc_mediacodec \
         --enable-muxer=mov,matroska,mpegts,image2 \
         --enable-encoder=mjpeg,png \
         --disable-demuxers \
