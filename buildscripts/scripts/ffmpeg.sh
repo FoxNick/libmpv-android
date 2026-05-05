@@ -26,13 +26,29 @@ cpuflags=
 ../configure \
         --target-os=android --enable-cross-compile --cross-prefix=$ndk_triple- --cc=$CC \
         --arch=${ndk_triple%%-*} --cpu=$cpu --pkg-config=pkg-config --nm=llvm-nm \
-        --ar=llvm-ar --ranlib=llvm-ranlib --enable-pic --disable-asm \
+        --ar=llvm-ar --ranlib=llvm-ranlib --enable-pic --enable-asm --enable-neon \
         --extra-cflags="-I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
         --enable-{jni,mediacodec,mbedtls,libdav1d,libxml2} --disable-vulkan \
         --enable-static --disable-shared --enable-{gpl,version3} \
-        --disable-{stripping,doc,programs} \
-        --disable-{muxers,encoders,devices,filters} \
-        --disable-v4l2-m2m
+        --disable-{stripping,doc,programs,debug} \
+        --disable-{muxers,encoders,devices,filters,bsfs} \
+        --disable-v4l2-m2m \
+        --disable-decoders \
+        --enable-decoder=h264,hevc,vp8,vp9,av1,mpeg4,mpeg2video,mpeg1video,msmpeg4v3 \
+        --enable-decoder=rv10,rv20,rv30,rv40 \
+        --enable-decoder=aac,aac_latm,ac3,eac3,dca,flac,mp3,opus,vorbis,pcm_s16le,pcm_s24le \
+        --enable-decoder=ape,alac,amrnb,amrwb \
+        --enable-decoder=ass,subrip \
+        --enable-decoder=h264_mediacodec,hevc_mediacodec,vp9_mediacodec,av1_mediacodec,mpeg4_mediacodec \
+        --enable-muxer=mov,matroska,mpegts,image2 \
+        --enable-encoder=mjpeg,png \
+        --disable-demuxers \
+        --enable-demuxer=mov,matroska,mpegts,mpegps,flv,avi,ogg,wav,rawvideo,hls,dash,ape,ac3,eac3,mp3 \
+        --disable-parsers \
+        --enable-parser=h264,hevc,vp9,av1,aac,aac_latm,ac3,eac3,dca,flac,mpeg4video,opus,vorbis,mpegaudio \
+        --disable-protocols \
+        --enable-protocol=file,http,https,crypto,hls,rtmp,rtmps,rtsp,concat,pipe
+
 
 make -j$cores
 make DESTDIR="$prefix_dir" install
