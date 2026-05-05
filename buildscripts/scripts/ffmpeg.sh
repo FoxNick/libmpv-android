@@ -49,7 +49,7 @@ cpuflags=
         --disable-parsers \
         --enable-parser=h264,hevc,vp9,av1,aac,aac_latm,ac3,eac3,dca,flac,mpeg4video,opus,vorbis,mpegaudio \
         --disable-protocols \
-        --enable-protocol=file,http,https,crypto,hls,rtmp,rtmps,rtsp,concat,pipe
+        --enable-protocol=file,http,https,crypto,hls,rtmp,rtmps,rtsp,concat,pipe,udp,rtp
 
 
 make -j$cores
