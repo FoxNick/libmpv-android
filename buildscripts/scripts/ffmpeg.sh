@@ -36,6 +36,7 @@ cpuflags=
         --disable-decoders \
         --enable-decoder=h264,hevc,vp8,vp9,av1,vvc,mpeg4,mpeg2video,mpeg1video,msmpeg4v3 \
         --enable-decoder=rv10,rv20,rv30,rv40,prores,bink \
+        --enable-decoder=cook,sipr,wmapro,wmav1,wmav2 \
         --enable-decoder=aac,aac_latm,ac3,eac3,dca,flac,mp3,opus,vorbis \
         --enable-decoder=pcm_s16le,pcm_s24le,pcm_s32le,pcm_f32le,pcm_dvd \
         --enable-decoder=ape,alac,amrnb,amrwb,qdm2 \
