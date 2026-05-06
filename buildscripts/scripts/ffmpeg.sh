@@ -26,9 +26,9 @@ cpuflags=
 ../configure \
  --target-os=android --enable-cross-compile --cross-prefix=$ndk_triple- --cc=$CC \
  --arch=${ndk_triple%%-*} --cpu=$cpu --pkg-config=pkg-config --nm=llvm-nm \
- --ar=llvm-ar --ranlib=llvm-ranlib --enable-pic --disable-asm \
+ --ar=llvm-ar --ranlib=llvm-ranlib --enable-pic --enable-asm \
  --extra-cflags="-I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
- --disable-static --enable-shared --enable-gpl --enable-version3 \
+ --enable-static --disable-shared --enable-gpl --enable-version3 \
  --disable-stripping --disable-doc --disable-programs \
  --disable-{muxers,encoders,devices,filters,bsfs} \
  --enable-muxer=image2 \
@@ -55,5 +55,5 @@ cpuflags=
  --disable-demuxer=sol,subviewer,thp,tta,txd,vag,viv,vmd,voc,vqf,w64,wc3,yop \
  --enable-jni --enable-mediacodec --enable-mbedtls --enable-libdav1d --enable-libxml2 --disable-vulkan
 
-make -j$cores
+make -j$cores CFLAGS="-fPIC $CFLAGS"
 make DESTDIR="$prefix_dir" install
