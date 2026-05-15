@@ -29,7 +29,7 @@ cpuflags=
  --ar=llvm-ar --ranlib=llvm-ranlib --enable-pic --disable-asm \
  --extra-cflags="-I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
  --enable-{jni,mediacodec,mbedtls,libdav1d,libxml2} --disable-vulkan \
- --disable-static --enable-shared --enable-{gpl,version3} \
+ --enable-static --disable-shared --enable-{gpl,version3} \
  --disable-{stripping,doc,programs} \
  --disable-{muxers,encoders,devices,filters} \
  --disable-v4l2-m2m
