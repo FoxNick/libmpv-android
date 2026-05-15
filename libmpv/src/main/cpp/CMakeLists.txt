@@ -113,6 +113,6 @@ target_link_libraries(player
         unibreak
         lua placebo
         dav1d xml2 mbedtls mbedx509 mbedcrypto
-        log android mediandk z m dl
+        log android mediandk z m dl vulkan
         EGL OpenSLES
 )
