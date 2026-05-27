@@ -45,6 +45,10 @@ set_target_properties(avdevice PROPERTIES IMPORTED_LOCATION ${PREFIX_LIB}/libavd
 add_library(dav1d STATIC IMPORTED)
 set_target_properties(dav1d PROPERTIES IMPORTED_LOCATION ${PREFIX_LIB}/libdav1d.a)
 
+# uavs3d
+add_library(uavs3d STATIC IMPORTED)
+set_target_properties(uavs3d PROPERTIES IMPORTED_LOCATION ${PREFIX_LIB}/libuavs3d.a)
+
 # mbedtls
 add_library(mbedtls STATIC IMPORTED)
 set_target_properties(mbedtls PROPERTIES IMPORTED_LOCATION ${PREFIX_LIB}/libmbedtls.a)
@@ -112,7 +116,7 @@ target_link_libraries(player
         harfbuzz harfbuzz-subset harfbuzz-gpu harfbuzz-raster harfbuzz-vector
         unibreak
         lua placebo
-        dav1d xml2 mbedtls mbedx509 mbedcrypto
+        dav1d uavs3d xml2 mbedtls mbedx509 mbedcrypto
         log android mediandk z m dl vulkan
         EGL OpenSLES
 )
