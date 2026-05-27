@@ -10,7 +10,7 @@ shared library linking. Use GOT-relative addressing instead.
 diff --git a/libavutil/aarch64/asm.S b/libavutil/aarch64/asm.S
 --- a/libavutil/aarch64/asm.S
 +++ b/libavutil/aarch64/asm.S
-@@ -322,8 +322,10 @@
+@@ -325,8 +325,10 @@
          adrp            \rd, :pg_hi21_nc:\val+(\offset)
  #   else
 -        adrp            \rd, \val+(\offset)
@@ -23,4 +23,4 @@ diff --git a/libavutil/aarch64/asm.S b/libavutil/aarch64/asm.S
  #   endif
  #else
          ldr             \rd, =\val+\offset
-#endif
+ 
