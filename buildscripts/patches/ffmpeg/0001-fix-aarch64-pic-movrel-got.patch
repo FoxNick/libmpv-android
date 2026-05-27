@@ -23,4 +23,3 @@ diff --git a/libavutil/aarch64/asm.S b/libavutil/aarch64/asm.S
  #   endif
  #else
          ldr             \rd, =\val+\offset
- 
