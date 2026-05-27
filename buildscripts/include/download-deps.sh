@@ -12,6 +12,14 @@ mkdir -p deps && cd deps
 # dav1d
 [ ! -d dav1d ] && git clone --depth 1 --branch $v_dav1d https://code.videolan.org/videolan/dav1d.git dav1d
 
+# uavs3d
+if [ ! -d uavs3d ]; then
+        git clone https://github.com/uavs3/uavs3d.git uavs3d
+        cd uavs3d
+        git checkout 1fd0491
+        cd ..
+fi
+
 # ffmpeg
 [ ! -d ffmpeg ] && git clone --depth 1 --branch n$v_ffmpeg https://github.com/FFmpeg/FFmpeg.git ffmpeg
 
@@ -26,9 +34,9 @@ mkdir -p deps && cd deps
 
 # libunibreak
 if [ ! -d libunibreak ]; then
-	mkdir libunibreak
-	$WGET https://github.com/adah1972/libunibreak/releases/download/libunibreak_${v_libunibreak}/libunibreak-${v_libunibreak//_/.}.tar.gz -O - | \
-		tar -xz -C libunibreak --strip-components=1
+        mkdir libunibreak
+        $WGET https://github.com/adah1972/libunibreak/releases/download/libunibreak_${v_libunibreak}/libunibreak-${v_libunibreak//_/.}.tar.gz -O - | \
+                tar -xz -C libunibreak --strip-components=1
 fi
 
 # libxml2
@@ -42,9 +50,9 @@ fi
 
 # lua
 if [ ! -d lua ]; then
-	mkdir lua
-	$WGET http://www.lua.org/ftp/lua-$v_lua.tar.gz -O - | \
-		tar -xz -C lua --strip-components=1
+        mkdir lua
+        $WGET http://www.lua.org/ftp/lua-$v_lua.tar.gz -O - | \
+                tar -xz -C lua --strip-components=1
 fi
 
 [ ! -d libplacebo ] && git clone --depth 1 --branch v$v_libplacebo --recurse-submodules https://code.videolan.org/videolan/libplacebo.git libplacebo
